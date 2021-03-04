@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to bwconncomp’s documentation! &#8212; Dokumentace pro bwconncomp </title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Rejstřík" href="genindex.html" />
+    <link rel="search" title="Vyhledávání" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-bwconncomp-s-documentation">
+<h1>Welcome to bwconncomp’s documentation!<a class="headerlink" href="#welcome-to-bwconncomp-s-documentation" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Rejstřík</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Rejstřík modulů</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Vyhledávací stránka</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="module-bwconncomp.rgb2gray">
+<span id="rgb2gray-img-mez"></span><h1>rgb2gray(img, mez)<a class="headerlink" href="#module-bwconncomp.rgb2gray" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 5.1.21</p>
+<p>Funkce: Převede barevný obrázek na černobílý</p>
+<p>Potřebné moduly: numpy as np</p>
+<div class="section" id="parametry">
+<h2>Parametry<a class="headerlink" href="#parametry" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>img - původní černobílý obrázek</p>
+<p>mez - při překročení, pixel je vyhodnocen jako černý &lt;1,255&gt;</p>
+<p>return - binární obrázek - matice</p>
+</div>
+</div>
+<div class="section" id="module-bwconncomp.binarize">
+<span id="binarize-seznam"></span><h1>binarize(seznam)<a class="headerlink" href="#module-bwconncomp.binarize" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 19.2.21</p>
+<dl class="simple">
+<dt>Funkce: Projde každý prvek matice seznam a pokud najde nenulový prvek,</dt><dd><p>přepíše ho na jedničku.</p>
+</dd>
+</dl>
+<p>Potřebné moduly: numpy as np</p>
+<div class="section" id="id1">
+<h2>Parametry<a class="headerlink" href="#id1" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>seznam - matice, kterou chci upravit</p>
+<p>return - upravená kopie matice seznam</p>
+</div>
+</div>
+<div class="section" id="module-bwconncomp.getcoordlistofoneclass">
+<span id="getcoordlistofoneclass-objclass-myc"></span><h1>getcoordlistofoneclass(objclass, myc)<a class="headerlink" href="#module-bwconncomp.getcoordlistofoneclass" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 12.2.21</p>
+<p>Funkce: V matici objclass najde všechny prvky myc a vrátí jejich souřadnice</p>
+<p>Potřebné moduly: numpy as np</p>
+<div class="section" id="id2">
+<h2>Parametry<a class="headerlink" href="#id2" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>objClass - matice popisující objekty pomocí očíslování bloků jedniček</p>
+<p>myc - moje hledaná třída</p>
+<dl class="simple">
+<dt>return - pole obsahující v každém prvku pole souřadnic [x,y] každého pixelu</dt><dd><p>v dané třídě</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="module-bwconncomp.getlistofclasses">
+<span id="getlistofclasses-objclass"></span><h1>getlistofclasses(objclass)<a class="headerlink" href="#module-bwconncomp.getlistofclasses" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 12.2.21</p>
+<p>Funkce: Vrátí množinu čísel uvnitř matice objclass</p>
+<p>Potřebné moduly: numpy as np</p>
+<div class="section" id="id3">
+<h2>Parametry<a class="headerlink" href="#id3" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>objClass - matice popisující objekty pomocí očíslování bloků jedniček</p>
+<p>return - pole obsahující všechny třídy - popis objektu</p>
+</div>
+</div>
+<div class="section" id="module-bwconncomp.findallneighbors">
+<span id="findallneighbors-img-x-y"></span><h1>findallneighbors(img, _x, _y)<a class="headerlink" href="#module-bwconncomp.findallneighbors" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 16.2.21</p>
+<dl class="simple">
+<dt>Funkce: Najde v matici img na souřadnicích _x,_y sousední prvky</dt><dd><p>obsahující jedničku. Funkce kouká do všech směrů mimo diagonální.</p>
+</dd>
+</dl>
+<p>Potřebné moduly: numpy as np</p>
+<div class="section" id="id4">
+<h2>Parametry<a class="headerlink" href="#id4" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>img - původní černobílý obrázek</p>
+<p>_x,_y - souřadnice zkoumaného pixelu, x: sloupec, y: řádek</p>
+<dl class="simple">
+<dt>neighbors - seznam obsahující v každé položce obě souřadnice souseda bodu</dt><dd><p>x,y</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="module-bwconncomp.bwconncomp">
+<span id="bwconncomp-img"></span><h1>bwconncomp(img)<a class="headerlink" href="#module-bwconncomp.bwconncomp" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 5.1.21</p>
+<p>Upraveno: 14.2.21</p>
+<dl class="simple">
+<dt>Funkce: Vrátí matici velikosti img, do které zapíše ke každému objektu z</dt><dd><p>img unikátní číslo (třídu).
+Funkce sleduje řádek po řádku, ale někdy rekurzivně „zabloudí“
+i mimo daný řádek.</p>
+</dd>
+</dl>
+<p>Potřebné moduly: numpy as np</p>
+<dl class="simple">
+<dt>Potřebné funkce:    findneighbors()</dt><dd><p>findneighborclasses()
+remapclasses2()
+remapclasses3()</p>
+</dd>
+</dl>
+<p>img - původní černobílý obrázek</p>
+<p>return - Matice s třídami na souřadnicích objektů z img</p>
+</div>
+<div class="section" id="module-bwconncomp.findneighbors">
+<span id="findneighbors-img-x-y"></span><h1>findneighbors(img, _x, _y)<a class="headerlink" href="#module-bwconncomp.findneighbors" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 12.2.21</p>
+<dl class="simple">
+<dt>Funkce: Najde v matici img na souřadnicích _x,_y sousední prvky</dt><dd><p>obsahující jedničku. Funkce kouká pouze nahoru na doleva.</p>
+</dd>
+</dl>
+<div class="section" id="id5">
+<h2>Parametry<a class="headerlink" href="#id5" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>img - původní černobílý obrázek</p>
+<p>x,y - souřadnice zkoumaného pixelu</p>
+<dl class="simple">
+<dt>neighbors - seznam obsahující v každé položce obě souřadnice souseda bodu</dt><dd><p>x,y</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="module-bwconncomp.findneighborclasses">
+<span id="findneighborclasses-neighbors-objclass"></span><h1>findneighborclasses(neighbors, objclass)<a class="headerlink" href="#module-bwconncomp.findneighborclasses" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 12.2.21</p>
+<dl class="simple">
+<dt>Funkce: Vrátí množinu daných hodnot tříd uvnitř objclass na souřadnicích</dt><dd><p>uvnitř listu neighbors</p>
+</dd>
+</dl>
+<p>Potřebné moduly: numpy as np</p>
+<p>Potřebné funkce: isinlist()</p>
+<div class="section" id="id6">
+<h2>Parametry<a class="headerlink" href="#id6" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>neighbors - seznam souřadnic sousedních jedniček</p>
+<p>objClass - matice popisující objekty pomocí očíslování bloků jedniček</p>
+<p>return - Množina tříd</p>
+</div>
+</div>
+<div class="section" id="module-bwconncomp.isinlist">
+<span id="isinlist-seznam-prvek"></span><h1>isinlist(seznam, prvek)<a class="headerlink" href="#module-bwconncomp.isinlist" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 12.2.21</p>
+<p>Funkce: Hledá prvek uvnitř listu seznam</p>
+<p>Potřebné moduly: numpy as np</p>
+<div class="section" id="id7">
+<h2>Parametry<a class="headerlink" href="#id7" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>seznam - zkoumaný list</p>
+<p>prvek - číselná hodnota, kterou v sezmanu hledám</p>
+<p>return - True/False - hodnota nalezena/nenalezena</p>
+</div>
+</div>
+<div class="section" id="module-bwconncomp.remapclasses2">
+<span id="remapclasses2-img-objclass-xynow-na"></span><h1>remapclasses2(img, objclass, xynow, _na)<a class="headerlink" href="#module-bwconncomp.remapclasses2" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 13.2.21</p>
+<p>Upraveno: 19.2.21</p>
+<dl class="simple">
+<dt>Funkce: Přepíše všechny dané třídy v jednom řádku v rámci jednoho objektu.</dt><dd><p>Funkce dále zkoumá, jestli jsou všechny prvky nad přepisovanými
+prvky přepsány. Při „zablokování cesty“ směrem dolu prvky dole
+přepíše.</p>
+</dd>
+</dl>
+<p>Potřebné moduly:    numpy as np</p>
+<dl class="simple">
+<dt>Potřebné funkce:    remapclasses3()</dt><dd><p>findedges()
+followtheedge()</p>
+</dd>
+</dl>
+<div class="section" id="id8">
+<h2>Parametry<a class="headerlink" href="#id8" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>objClass - matice popisující objekty pomocí očíslování bloků jedniček</p>
+<p>xynow - nynější souřadnice v matici</p>
+<p>z - z čeho změnit třídu</p>
+<p>na - na co změnit třídu</p>
+<p>return - matice objClass, všude místo „z“ je „na“</p>
+</div>
+</div>
+<div class="section" id="module-bwconncomp.remapclasses3">
+<span id="remapclasses3-img-objclass-neighbors-beginneighbor"></span><h1>remapclasses3(img, objclass, neighbors, beginneighbor)<a class="headerlink" href="#module-bwconncomp.remapclasses3" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 14.2.21</p>
+<p>Upraveno: 19.2.21</p>
+<dl class="simple">
+<dt>Funkce: Přepisuje třídy uvnitř objclass na aktuální hodnotu.</dt><dd><p>Funkce sleduje hrany.
+Funkce nejdříve docestuje do nejkrajnějšího levého horního rohu,
+přičemž sleduje, zda jsou při cestě doleva nepřepsané třídy.
+Případně celý spodní blok přepíše.
+Funkce pak cestuje po kraji nepřepsaného objektu a vše přepisuje
+pomocí remapclasses2.</p>
+</dd>
+</dl>
+<p>Potřebné moduly:    numpy as np</p>
+<dl class="simple">
+<dt>Potřebné funkce:    findedges()</dt><dd><p>remapclasses2()
+followtheedge()</p>
+</dd>
+</dl>
+<div class="section" id="id9">
+<h2>Parametry<a class="headerlink" href="#id9" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>objClass - matice popisující objekty pomocí očíslování bloků jedniček</p>
+<p>neighbors - sousedi původního prvku</p>
+<dl class="simple">
+<dt>beginNeighbor - číslo souseda (1/0) u kterého začínám, číslo souseda nahoře</dt><dd><p>od aktuálního prvku</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="module-bwconncomp.findedges">
+<span id="findedges-img-objclass-x-y-na"></span><h1>findedges(img, objclass, _x, _y, _na)<a class="headerlink" href="#module-bwconncomp.findedges" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 19.2.21</p>
+<p>Upraveno: 20.2.21</p>
+<dl class="simple">
+<dt>Funkce: Najde „hrany“ v dané souřadnici _x,_y</dt><dd><p>(hrana: nepřepsaný prvek, mimo objekt, nidky nepřepsaná třída)</p>
+</dd>
+</dl>
+<p>Potřebné moduly: numpy as np</p>
+<div class="section" id="id10">
+<h2>Parametry<a class="headerlink" href="#id10" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>img - Binární matice původního obrázku</p>
+<p>objclass - matice tříd (labelů)</p>
+<p>_x,_y - souřadnic zkoumaného pixelu</p>
+<p>_na - na jaké číslo zrovna třídy přepisuji</p>
+<dl class="simple">
+<dt>return - List o velikosti 4, určující kde se vyskytují hrany.</dt><dd><p>(nahoře, vpravo, dole, vlevo)</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="module-bwconncomp.followtheedge">
+<span id="followtheedge-edges-lastedge-x-y"></span><h1>followtheedge(edges, lastedge, _x, _y)<a class="headerlink" href="#module-bwconncomp.followtheedge" title="Trvalý odkaz na tento nadpis">¶</a></h1>
+<p>Autor: Zajan Ondřej</p>
+<p>Vytvořeno: 19.2.21</p>
+<p>Upraveno: 20.2.21</p>
+<dl class="simple">
+<dt>Funkce: Sleduje hrany po směru hodinových ručiček. Při zavolání udělá</dt><dd><p>pouze jeden krok.</p>
+</dd>
+</dl>
+<p>Potřebné moduly:    numpy as np</p>
+<div class="section" id="id11">
+<h2>Parametry<a class="headerlink" href="#id11" title="Trvalý odkaz na tento nadpis">¶</a></h2>
+<p>edges - hrany daného pixelu</p>
+<p>lastedge - číslo hrany při posledním kroku (0-3, nahoře,vpravo,dole,vlevo)</p>
+<p>_x,_y - souřadnice zkoumaného pixelu</p>
+<p>return - nové hodnoty lastedge, _x, _y</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">bwconncomp</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigace</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Rychlé vyhledávání</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="OK" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Zajan Ondřej.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
