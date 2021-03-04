@@ -41,7 +41,7 @@ listofclasses = moje.getlistofclasses(objclass)#najdi všechny třídy
 print("Třídy načteny")
 conncomp = list()
 for c in listofclasses:
-    conncomp.append(moje.getcoordlistofoneclass(objclass,c))
+    conncomp.append(moje.getcoordlistofoneclass(objclass,int(c)))
 print("Třídy zmapovány")
 
 # vyberu pouze objekty větší než 5000
