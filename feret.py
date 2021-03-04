@@ -162,17 +162,17 @@ def rotuj(body,osa,uhel):
 def vecSize(vec):
     return math.sqrt(vec[0]*vec[0]+vec[1]*vec[1])
 
-def getFirstEdgePoint(binaryObjMatrix):
+def getFirstEdgePoint(obj,binaryObjMatrix):
     for coord in obj:
         neighbors=moje.findallneighbors(binaryObjMatrix,coord[1],coord[0])
         if(np.shape(neighbors)[0]!=4):#jeden nebo více pixelů jsou černé, pak sousedím s hranou
             return [coord[0],coord[1]]       
 
 def getObjEdges(obj):
-    binary=moje.binarize(obj2Matrix(obj))
+    binary=binarize3dto2d(obj2Matrix(obj))
     mapa=np.zeros(np.shape(binary),bool)
     mapaCoords=np.empty((0,2),int)
-    [startY,startX]=getFirstEdgePoint(binary)
+    [startY,startX]=getFirstEdgePoint(obj,binary)
     x=startX
     y=startY
     edges=moje.findedges(binary,binary,x,y,0)
@@ -267,7 +267,7 @@ def getAdjustVector(edge_points,hlavniPrimka, A, B, vedlejsiPrimka, C, smer):
         else:
             return (minPoint-getPointLineVec(minPoint,hlavniPrimka))
 
-def adjustBox(edge_points,boundingBox,primky):
+def adjustBox(obj,edge_points,boundingBox,primky):
     """
     Autor: Zajan Ondřej
     Vytvořeno: 27.2.21
@@ -294,13 +294,42 @@ def adjustBox(edge_points,boundingBox,primky):
             if(np.shape(fixVec)[0]!=0):
                 primky=getLines(boundingBox)     
 
+
+def binarize3dto2d(seznam):
+    """
+    Autor: Zajan Ondřej
+
+    Vytvořeno: 19.2.21
+
+    Funkce: Projde každý prvek matice seznam a pokud najde nenulový prvek,
+            přepíše ho na jedničku.
+
+    Potřebné moduly: numpy as np
+
+    Parametry
+    =========
+
+    seznam - matice, kterou chci upravit
+
+    return - upravená kopie matice seznam
+    """
+    if np.size(np.shape(seznam)) != 3:
+        raise Exception("Matice seznam má špatný rozměr")
+    matrix = np.zeros(np.shape(seznam)[:2]).astype(np.uint8)
+    #uint8 aby matice fungovala s cv2
+    for _y, row in enumerate(seznam):
+        for _x, prvek in enumerate(row):
+            if (prvek != 0).any():
+                matrix[_y][_x] = 1
+    return matrix
+
 def obj2Matrix(obj):
     matrix=np.zeros((obj[np.argmax(obj,axis=0)[0]][0]+100,obj[np.argmax(obj,axis=0)[1]][1]+100,3)).astype(np.uint8)
     for coord in obj:
         matrix[coord[0]][coord[1]]=[0,0,255]
     return matrix
 
-def printLineInMatrix(matrix,primka):
+def printLineInMatrix(obj,matrix,primka):
     for x in range(obj[np.argmin(obj,axis=0)[1]][1],obj[np.argmin(obj,axis=0)[1]][1]):
         coord=movePointAlong(primka,[1,1],1,)
         matrix[coord[0]][coord[1]]=1
@@ -334,6 +363,7 @@ def printPoints(obj,points):
     plt.show()
 
 def getFeretDiameters(obj):
+    obj=np.array(obj,int)
     #[řádek,sloupec]
     #A - [min řádek, min sloupec]
     #B - [min řádek, max sloupec]
@@ -358,7 +388,7 @@ def getFeretDiameters(obj):
         print(angle)    
         printBox(obj,boundingBox)
         primky=getLines(boundingBox)
-        adjustBox(edge_points,boundingBox,primky)
+        adjustBox(obj,edge_points,boundingBox,primky)
         new_min=min(vecSize(boundingBox[1]-boundingBox[0]),vecSize(boundingBox[2]-boundingBox[1]))
         if(new_min<feretMin):
             feretMin=new_min

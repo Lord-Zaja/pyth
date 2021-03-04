@@ -37,23 +37,29 @@ elapsed2=time.time()-t
 print("Bwconncomp CV2 time= ",elapsed2)
 
 # uložení tříd objektů s jejich souřadnicemi do seznamu
+t=time.time()
 listofclasses = moje.getlistofclasses(objclass)#najdi všechny třídy
 print("Třídy načteny")
 conncomp = list()
 for c in listofclasses:
     conncomp.append(moje.getcoordlistofoneclass(objclass,int(c)))
-print("Třídy zmapovány")
+elapsed3=time.time()-t
+print("Mapování tříd time= ",elapsed3)
 
 # vyberu pouze objekty větší než 5000
 conncomp = [i for i in conncomp if np.size(i)>5000]
 
 # najdu Feretovy průměry
+t=time.time()
 fmax=[]
 fmin=[]
 for o in conncomp:
-    feretMin,feretMax=feret.getFeretDiameters(o[0])
+    feretMin,feretMax=feret.getFeretDiameters(o)
     fmax.append(feretMax)
     fmin.append(feretMin)
+elapsed4=time.time()-t
+print("Feret time= ",elapsed4)
+
 
 # vykreslím průměry
 plt.plot(fmax,fmin)
