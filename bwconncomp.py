@@ -42,6 +42,7 @@ def rgb2gray(img, mez):
                 binary_img[row_idx, col_idx] = 1  # jednička je zde jako černá
     return binary_img
 
+
 def binarize(seznam):
     """
     Autor: Zajan Ondřej
@@ -63,12 +64,13 @@ def binarize(seznam):
     if np.size(np.shape(seznam)) != 2:
         raise Exception("Matice seznam má špatný rozměr")
     matrix = np.zeros(np.shape(seznam)[:2]).astype(np.uint8)
-    #uint8 aby matice fungovala s cv2
+    # uint8 aby matice fungovala s cv2
     for _y, row in enumerate(seznam):
         for _x, prvek in enumerate(row):
             if (prvek != 0).any():
                 matrix[_y][_x] = 1
     return matrix
+
 
 def getcoordlistofoneclass(objclass, myc):
     """
@@ -648,8 +650,8 @@ def remapclasses3(img, objclass, neighbors, beginneighbor):
     if np.size(np.shape(neighbors)) != 2 or np.shape(neighbors)[1] != 2:
         raise Exception("Neighbors seznam má špatný rozměr")
     for coord in neighbors:
-        _x=coord[0]
-        _y=coord[1]
+        _x = coord[0]
+        _y = coord[1]
         if np.size(np.shape(_x)) != 0:
             raise Exception("Souřadnice _x musí být číslo")
         if np.size(np.shape(_y)) != 0:
@@ -742,7 +744,7 @@ def bwconncomp(img):
 
     Potřebné moduly: numpy as np
 
-    Potřebné funkce:    findneighbors(), findneighborclasses(), remapclasses2(),
+    Potřebné funkce:    findneighbors(), findneighborclasses(),remapclasses2(),
                         remapclasses3()
 
     Parametry

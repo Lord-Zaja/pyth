@@ -15,16 +15,15 @@ def test_invalid_values():
     with pytest.raises(Exception):
         moje(-1)
     with pytest.raises(Exception):
-        moje(np.ones((3,3,3,3)))
+        moje(np.ones((3, 3, 3, 3)))
     with pytest.raises(Exception):
-        moje(np.ones((2,2,2)))
-        
+        moje(np.ones((2, 2, 2)))
+
 
 def test_dim_of_return_value():
-    assert 1 == np.shape(moje(np.random.rand(50,75)))[1]
-    
+    assert 1 == np.shape(moje(np.random.rand(50, 75)))[1]
+
+
 def test_ones_and_zeros():
-    assert (moje(np.ones((50,75))) == [1])
-    assert (np.size(moje(np.zeros((50,75)))) == 0)
-    
-    
+    assert (moje(np.ones((50, 75))) == [1])
+    assert (np.size(moje(np.zeros((50, 75)))) == 0)

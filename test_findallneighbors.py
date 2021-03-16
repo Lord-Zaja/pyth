@@ -13,31 +13,29 @@ import numpy as np
 
 def test_invalid_values():
     with pytest.raises(Exception):
-        moje(-1,0,0)
+        moje(-1, 0, 0)
     with pytest.raises(Exception):
-        moje(np.ones((3,3,3,3)),0,0)
+        moje(np.ones((3, 3, 3, 3)), 0, 0)
     with pytest.raises(Exception):
-        moje(np.ones((2,2,2)),0,0)
+        moje(np.ones((2, 2, 2)), 0, 0)
     with pytest.raises(Exception):
-        moje(np.ones((2,2)),-1,0)
+        moje(np.ones((2, 2)), -1, 0)
     with pytest.raises(Exception):
-        moje(np.ones((2,2)),0,-1)
+        moje(np.ones((2, 2)), 0, -1)
     with pytest.raises(Exception):
-        moje(np.ones((2,2)),2,0)
+        moje(np.ones((2, 2)), 2, 0)
     with pytest.raises(Exception):
-        moje(np.ones((2,2)),0,2)
+        moje(np.ones((2, 2)), 0, 2)
     with pytest.raises(Exception):
-        moje(np.ones((2,2)),[1,2],0)
+        moje(np.ones((2, 2)), [1, 2], 0)
     with pytest.raises(Exception):
-        moje(np.ones((2,2)),0,[1,2])
-        
-        
+        moje(np.ones((2, 2)), 0, [1, 2])
+
+
 def test_dim_of_return_value():
-    assert np.shape(moje(np.ones((3,3)),1,1))[1] == 2
-    
-    
+    assert np.shape(moje(np.ones((3, 3)), 1, 1))[1] == 2
+
+
 def test_ones_and_zeros():
-    assert (moje(np.ones((3,3)),1,1) == [[0,1],[2,1],[1,0],[1,2]])
-    assert (np.size(moje(np.zeros((3,3)),1,1)) == 0)
-    
-    
+    assert (moje(np.ones((3, 3)), 1, 1) == [[0, 1], [2, 1], [1, 0], [1, 2]])
+    assert (np.size(moje(np.zeros((3, 3)), 1, 1)) == 0)

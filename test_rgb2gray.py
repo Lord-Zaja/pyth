@@ -13,18 +13,19 @@ import numpy as np
 
 def test_invalid_values():
     with pytest.raises(Exception):
-        moje(-1,-1)
+        moje(-1, -1)
     with pytest.raises(Exception):
-        moje(np.ones((3,3,3,3)),5)
+        moje(np.ones((3, 3, 3, 3)), 5)
     with pytest.raises(Exception):
-        moje(np.ones((2,2)),-1)
+        moje(np.ones((2, 2)), -1)
     with pytest.raises(Exception):
-        moje(np.ones((2,2)),[1,2])
+        moje(np.ones((2, 2)), [1, 2])
     with pytest.raises(Exception):
-        moje(np.ones((2,2)),250)
+        moje(np.ones((2, 2)), 250)
     with pytest.raises(Exception):
-        moje(np.ones((2,2,2)),250)
-        
+        moje(np.ones((2, 2, 2)), 250)
+
 
 def test_dim_of_return_value():
-    assert np.shape(np.ones((10,5,3)))[:-1] == np.shape(moje(np.ones((10,5,3)),55))
+    assert np.shape(np.ones((10, 5, 3)))[
+        :-1] == np.shape(moje(np.ones((10, 5, 3)), 55))
